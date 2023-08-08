@@ -6,7 +6,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm install`
+
+#### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -15,7 +17,7 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 
-## Technology
+# Technology
 
 - tailwind css library: karena dengan menggunakan tailwind mudah dan cepat untuk membuat CSS. dan untuk kolaborasi team lebih enak karena tidak perlu takut untuk double className yang di tulis
 
