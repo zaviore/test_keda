@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+// layout
+import Login from "./pages/login";
+import Landing from "./pages/landing";
+import Dashboard from "./pages/dashboard";
+
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import PrivateWrapper from "./privateWrapper";
+
+export default function App() {
+  const [authenticated] = React.useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Landing />} />
+        <Route path='/' element={<Landing />} />
+        <Route
+          path='/dashboard'
+          element={<Navigate replace to='/dashboard/sumary' />}
+        />
+        <Route element={<PrivateWrapper auth={authenticated} />}>
+          <Route path='/dashboard/sumary' element={<Dashboard />}></Route>
+        </Route>
+
+        <Route path='/login' element={<Login />}></Route>
+        <Route path='/404' element={<Navigate replace to='/404' />} />
+        <Route path='*' element={<Navigate replace to='/404' />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
